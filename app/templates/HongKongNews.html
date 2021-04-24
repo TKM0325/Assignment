@@ -1,0 +1,130 @@
+<!-- extend base layout -->
+{% extends "index_base.html" %}
+
+{% block head_css %}
+        {{ super() }}
+        <link href="{{url_for('static',filename='css/custom.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<style>
+.dropbutton {
+  padding: 15px;
+  font-size: 15px;
+  border: none;
+}
+
+.dropdown {
+  float: left;
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 15px 15px;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content {display: block;}
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <h1><b>{{param1}}</b></h1>
+        <br>
+        <h4><p>Sections:</p>
+            <nav>
+                <a href="/Politics/">Politics -</a>
+                <a href="/Hong Kong economy/">Hong Kong economy -</a>
+                <a href="/Health & Environment/">Health & Environment -</a>
+                <a href="/Law and Crime/">Law and Crime -</a>
+                <a href="/Society/">Society -</a>
+                <a href="/Education/">Education -</a>
+                <a href="/Transport/">Transport -</a>
+            </nav>
+        </h4>
+    </div>
+</div>
+
+<hr style="height: 1.5px;border-width: 0;background-color: black;">
+
+<div class="dropdown">
+  <button class="dropbutton"><b>VISUAL STORIES ▼</b></button>
+  <div class="dropdown-content">
+    <a href="#">Visual Stories</a>
+    <a href="#">Trending</a>
+  </div>
+</div>
+
+<div class="TP">
+    <div class="tp">
+        <b>Coronavirus pandemic</b>
+        <br>
+        
+    </div>
+</div>
+
+
+
+<div class="MTS">
+    <div class="mts">
+        <b>MORE TOP STORIES</b>
+        <br>
+        
+    </div>
+</div>
+
+<hr style="height: 30px;border-width: 0;"/>
+<hr style="height: 1.5px;border-width: 0;background-color: black; width: 95%">
+<div class="container">
+    <div class="row">
+        <b>{{param1}} SPOTLIGHT</b>
+        <br>
+        
+    </div>
+</div>
+
+<hr style="height: 1.5px;border-width: 0;background-color: black;">
+<div class="dropdown">
+  <button class="dropbutton"><b>MOST VIEWED ▼</b></button>
+  <div class="dropdown-content">
+    <a href="#">Most Viewed</a>
+    <a href="#">Most Shared</a>
+  </div>
+</div>
+
+<div class="RECOMMENDED">
+    <div class="rmed">
+        <b>RECOMMENDED FOR YOU</b>
+        <br>
+        
+    </div>
+</div>
+
+<hr style="height: 1.5px;border-width: 0;background-color: black;">
+
+<div class="TOPIC">
+    <div class="tc">
+        <b>TOPIC</b>
+        <br>
+        
+    </div>
+</div>
+
+<hr style="height: 1.5px;border-width: 0;background-color: black;">
+
+<div class="MORE">
+    <div class="me">
+        <b>MORE ON {{param1}}</b>
+        <br>
+        
+    </div>
+</div>
+
+{% endblock %}
