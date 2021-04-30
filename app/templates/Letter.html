@@ -12,4 +12,18 @@
         <h1>{{param1}}</h1>
     </div>
 </div>
+    <table class="NEWS_FOR_Opinion">
+        <tr>
+            <th width="5%">Date</th>
+            <th width="20%">Thoughts</th>
+            <th width="75%">Comment</th>
+        </tr>
+        {% for data in datas%}
+        <tr>
+            <td width="5%">{{ data.date }}</td>
+            <td width="20%">{{ data.title }}</td>
+            <td width="75%">{{ data.comment }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

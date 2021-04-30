@@ -107,7 +107,7 @@ class NewsCategory(Model):
     __tablename__ = 'news_category'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False)
-    
+
 class Comment(Model):
     __tablename__ = 'Comment'
     id = Column(Integer, primary_key=True)

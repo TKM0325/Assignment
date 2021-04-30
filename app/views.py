@@ -77,14 +77,16 @@ class NewsPageView(BaseView):
     @expose('/HongKong/')
     def HongKong_News(self):
         param1 = 'HONG KONG'
+        data = db.session.query(News).all()
         self.update_redirect()
-        return self.render_template('HongKongNews.html', param1=param1)
+        return self.render_template('HongKongNews.html', param1=param1, datas = data)
         
     @expose('/Asia/')
     def Asia_News(self):
         param1 = 'ASIA'
+        data = db.session.query(News).all()
         self.update_redirect()
-        return self.render_template('Asia.html', param1=param1)
+        return self.render_template('Asia.html', param1=param1, datas = data)
         
     @expose('/Business/')
     def Buniness_News(self):
@@ -103,8 +105,9 @@ class NewsPageView(BaseView):
     @expose('/Sport/')
     def Sport_News(self):
         param1 = 'SPORT'
+        data = db.session.query(News).all()
         self.update_redirect()
-        return self.render_template('Sport.html', param1=param1)
+        return self.render_template('Sport.html', param1=param1, datas = data)
         
 class CommentPageView(BaseView):
     default_view = 'SCMP_Editorials'
@@ -112,8 +115,9 @@ class CommentPageView(BaseView):
     @expose('/SCMP_Editorials/')
     def SCMP_Editorials(self):
         param1 = 'SCMP Editorials'
+        data = db.session.query(Comment).all()
         self.update_redirect()
-        return self.render_template('SCMP_Ed.html', param1=param1)
+        return self.render_template('SCMP_Ed.html', param1=param1, datas = data)
         
     @expose('/Opinion/')
     def Opinion(self):
@@ -125,14 +129,16 @@ class CommentPageView(BaseView):
     @expose('/Harry View/')
     def HarryView(self):
         param1 = 'Harry View'
+        data = db.session.query(Comment).all()
         self.update_redirect()
-        return self.render_template('HV.html', param1=param1)
+        return self.render_template('HV.html', param1=param1, datas = data)
 
     @expose('/Letter/')
     def Letter(self):
         param1 = 'Letter'
+        data = db.session.query(Comment).all()
         self.update_redirect()
-        return self.render_template('Letter.html', param1=param1)
+        return self.render_template('Letter.html', param1=param1, datas = data)
 
 
 db.create_all()
