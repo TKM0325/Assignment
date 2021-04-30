@@ -49,7 +49,7 @@ class BenefitView(ModelView):
 
 class MenuItemView(ModelView):
     datamodel = SQLAInterface(MenuItem)
-    list_columns = ['id', 'name', 'link', 'menu_category_id']
+    list_columns = ['id', 'name', 'link', 'date', 'menu_category_id']
 
 class MenuCategoryView(ModelView):
     datamodel = SQLAInterface(MenuCategory)
@@ -65,7 +65,7 @@ class NewsCategoryView(ModelView):
 
 class CommentView(ModelView):
     datamodel = SQLAInterface(Comment)
-    list_columns = ['id', 'title', 'content', 'date', 'commentCat_id']
+    list_columns = ['id', 'title', 'comment', 'date', 'commentCat_id']
     
 class CommentCategoryView(ModelView):
     datamodel = SQLAInterface(CommentCategory)
@@ -89,14 +89,16 @@ class NewsPageView(BaseView):
     @expose('/Business/')
     def Buniness_News(self):
         param1 = 'BUSINESS'
+        data = db.session.query(MenuItem).all()
         self.update_redirect()
-        return self.render_template('Business.html', param1=param1)
+        return self.render_template('Business.html', param1=param1, datas = data)
         
     @expose('/Tech/')
     def Tech_News(self):
         param1 = 'TECH'
+        data = db.session.query(News).all()
         self.update_redirect()
-        return self.render_template('Tech.html', param1=param1)
+        return self.render_template('Tech.html', param1=param1, datas = data)
         
     @expose('/Sport/')
     def Sport_News(self):
@@ -116,12 +118,13 @@ class CommentPageView(BaseView):
     @expose('/Opinion/')
     def Opinion(self):
         param1 = 'Opinion'
+        data = db.session.query(Comment).all()
         self.update_redirect()
-        return self.render_template('Opinion.html', param1=param1)
+        return self.render_template('Opinion.html', param1=param1, datas = data)
         
-    @expose('/Harry''s View/')
+    @expose('/Harry View/')
     def HarryView(self):
-        param1 = 'Harry''s View'
+        param1 = 'Harry View'
         self.update_redirect()
         return self.render_template('HV.html', param1=param1)
 
@@ -144,7 +147,7 @@ appbuilder.add_link("Sport", href="/newspageview/Sport/", category="News")
 
 appbuilder.add_view(CommentPageView, 'SCMP_Editorials', category="Comment")
 appbuilder.add_link("Opinion", href="/commentpageview/Opinion/", category="Comment")
-appbuilder.add_link("Harry''s View", href="/commentpageview/Harry''s View/", category="Comment")
+appbuilder.add_link("Harry View", href="/commentpageview/Harry View/", category="Comment")
 appbuilder.add_link("Letter", href="/commentpageview/Letter/", category="Comment")
 
 """ Custom Views """

@@ -84,6 +84,7 @@ class MenuItem(Model):
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False)
     link = Column(String(150), nullable=False)
+    date = Column(Date, default=datetime.date.today(), nullable=True)
     menu_category_id = Column(Integer, ForeignKey('menu_category.id'), nullable=False)
     menu_category = relationship("MenuCategory")
 
@@ -111,9 +112,9 @@ class Comment(Model):
     __tablename__ = 'Comment'
     id = Column(Integer, primary_key=True)
     title = Column(String(50), nullable=False)
-    content = Column(String(500), nullable=False)
+    comment = Column(String(500), nullable=False)
     date = Column(Date, default=datetime.date.today(), nullable=True)
-    comment_category_id = Column(Integer, ForeignKey('comment_category.id'), nullable=False)
+    commentcat_id = Column(Integer, ForeignKey('comment_category.id'), nullable=False)
     comment_category = relationship("CommentCategory")
     
 class CommentCategory(Model):

@@ -51,6 +51,22 @@
 
 <hr style="height: 1.5px;border-width: 0;background-color: black;">
 
+<table class="NEWS_FOR_Business">
+    <tr>
+        <th width="5%">Date</th>
+        <th width="20%">Products</th>
+        <th width="75%">Link</th>
+    </tr>
+    {% for data in datas%}
+    <tr>
+        <td width="5%">{{ data.date }}</td>
+        <td width="20%">{{ data.name }}</td>
+        <td width="75%">{{ data.link }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<hr style="height: 1.5px;border-width: 0;background-color: black;">
+
 <div class="dropdown">
   <button class="dropbutton"><b>VISUAL STORIES ▼</b></button>
   <div class="dropdown-content">

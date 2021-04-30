@@ -51,20 +51,28 @@
 
 <hr style="height: 1.5px;border-width: 0;background-color: black;">
 
+<table class="NEWS_FOR_TECH">
+    <tr>
+        <th width="20%">Date</th>
+        <th width="30%">Title</th>
+        <th width="50%">Content</th>
+    </tr>
+    {% for data in datas%}
+    <tr>
+        <td width="5%">{{ data.date }}</td>
+        <td width="20%">{{ data.title }}</td>
+        <td width="75%">{{ data.content }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<hr style="height: 1.5px;border-width: 0;background-color: black;">
+
 <div class="dropdown">
   <button class="dropbutton"><b>VISUAL STORIES ▼</b></button>
   <div class="dropdown-content">
     <a href="#">Visual Stories</a>
     <a href="#">Trending</a>
   </div>
-</div>
-
-<div class="CE">
-    <div class="ce">
-        <b>Xiaomi</b>
-        <br>
-        
-    </div>
 </div>
 
 <div class="MTS">
